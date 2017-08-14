@@ -36,13 +36,17 @@ public class ListGenerator
     {
         Log.i(TAG, "Creating number list with size of " + listCount);
 
+        // Create an array of number rows to store each row
         ArrayList<NumberRow> numberList = new ArrayList<>();
 
-        // Loop through the list
+        // Loop through the list count
         for (int i = 0; i < listCount; i++)
         {
+            // Create a number row object
             NumberRow numberRow = new NumberRow();
+            // Set the number row ArrayList into the numberRow
             numberRow.setNumbers(generateRow());
+            // Add the numberRow to the list
             numberList.add(numberRow);
         }
 
@@ -68,6 +72,6 @@ public class ListGenerator
     private int getRandomNumber()
     {
         Random random = new Random();
-        return random.nextInt(numberMax);
+        return random.nextInt(numberMax + 1);
     }
 }
