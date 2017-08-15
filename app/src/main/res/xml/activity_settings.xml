@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="Game settings">
+        <EditTextPreference
+            android:inputType="numberDecimal"
+            android:key="KEY_NUM_GAMES"
+            android:title="Amount of games"
+            android:summary="Number of rows to generate"
+            android:defaultValue="18">
+
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:inputType="numberDecimal"
+            android:defaultValue="45"
+            android:key="KEY_MAX_NUMBER"
+            android:title="Max number"
+            android:summary="The highest number to randomise">
+        </EditTextPreference>
+
+        <EditTextPreference
+            android:inputType="numberDecimal"
+            android:defaultValue="10"
+            android:key="KEY_SHUFFLE_COUNT"
+            android:title="Shuffle Count"
+            android:summary="The amount of times to shuffle the numbers">
+        </EditTextPreference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.Random;
 
+import au.com.wsit.genni.R;
 import au.com.wsit.genni.model.NumberRow;
 
 
@@ -18,6 +19,7 @@ public class ListGenerator
     private Integer rowCount;
     private Integer listCount;
     private Integer numberMax;
+    public ArrayList<Integer> numbersList;
 
     public ListGenerator(Integer numberMax, Integer rowCount, Integer listCount)
     {
@@ -34,7 +36,12 @@ public class ListGenerator
 
     public void generateNumbers(Callback callback)
     {
+        // Wipe the numbers array list
+        // Used to detect duplicates
+        numbersList = new ArrayList<>();
+
         Log.i(TAG, "Creating number list with size of " + listCount);
+        int gameCount = 1;
 
         // Create an array of number rows to store each row
         ArrayList<NumberRow> numberList = new ArrayList<>();
@@ -44,9 +51,17 @@ public class ListGenerator
         {
             // Create a number row object
             NumberRow numberRow = new NumberRow();
+
+            // Set the colour of the number
+            numberRow.setColour(getRandomColour());
+
             // Set the number row ArrayList into the numberRow
             numberRow.setNumbers(generateRow());
             // Add the numberRow to the list
+
+            numberRow.setGameName("Game " + gameCount);
+            gameCount++;
+
             numberList.add(numberRow);
         }
 
@@ -55,7 +70,7 @@ public class ListGenerator
 
     private ArrayList<Integer> generateRow()
     {
-        Log.i(TAG, "Generating number row");
+        //Log.i(TAG, "Generating number row");
         ArrayList<Integer> numberRow = new ArrayList<>();
 
         for (int i = 0; i < rowCount; i++)
@@ -64,14 +79,63 @@ public class ListGenerator
             numberRow.add(getRandomNumber());
         }
 
-        Log.i(TAG, "Created number row: " + numberRow.toString());
+        //Log.i(TAG, "Created number row: " + numberRow.toString());
 
         return numberRow;
     }
 
     private int getRandomNumber()
     {
+        int number;
         Random random = new Random();
-        return random.nextInt(numberMax + 1);
+        number = random.nextInt(numberMax + 1);
+
+        numbersList.add(number);
+
+        // Check if the number is a duplicate
+        for(int i = 0; i < numbersList.size(); i++)
+        {
+            Log.i(TAG, "Checking if " + numbersList.get(i) + " matches " + number);
+            if(number == numbersList.get(i))
+            {
+                Log.i(TAG, "The number already exists in this row, regenerating");
+                getRandomNumber();
+            }
+            else if(number == 0)
+            {
+                Log.i(TAG, "The number was 0, regenerating");
+                return number + 1;
+            }
+            else
+            {
+                return number;
+            }
+        }
+        return number;
+    }
+
+    private ArrayList<Integer> getRandomColour()
+    {
+        ArrayList<Integer> coloursList = new ArrayList<>();
+
+        Random random = new Random();
+        int colours[] = {
+                R.drawable.yellow_circle,
+                R.drawable.blue_circle,
+                R.drawable.cyan_circle,
+                R.drawable.green_circle,
+                R.drawable.grey_circle,
+                R.drawable.purple_circle,
+                R.drawable.red_circle,
+                R.drawable.teal_circle};
+
+        for(int i = 0; i < rowCount; i++)
+        {
+            int index = random.nextInt(colours.length);
+            coloursList.add(colours[index]);
+        }
+
+        return coloursList;
+
     }
 }
