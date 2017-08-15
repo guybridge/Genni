@@ -103,7 +103,6 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder>
 
             gameName.setText(numberRow.getGameName());
 
-
         }
     }
 }

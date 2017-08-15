@@ -89,11 +89,10 @@ public class ListGenerator
         int number;
         Random random = new Random();
         number = random.nextInt(numberMax + 1);
-
         numbersList.add(number);
 
         // Check if the number is a duplicate
-        for(int i = 0; i < numbersList.size(); i++)
+        for(int i = 0; i <= numbersList.size(); i++)
         {
             Log.i(TAG, "Checking if " + numbersList.get(i) + " matches " + number);
             if(number == numbersList.get(i))
@@ -101,9 +100,10 @@ public class ListGenerator
                 Log.i(TAG, "The number already exists in this row, regenerating");
                 getRandomNumber();
             }
-            else if(number == 0)
+
+            if(number == 0)
             {
-                Log.i(TAG, "The number was 0, regenerating");
+                Log.i(TAG, "The number was 0");
                 return number + 1;
             }
             else
@@ -127,7 +127,9 @@ public class ListGenerator
                 R.drawable.grey_circle,
                 R.drawable.purple_circle,
                 R.drawable.red_circle,
-                R.drawable.teal_circle};
+                R.drawable.teal_circle,
+                R.drawable.orage_circle,
+                R.drawable.pink_circle};
 
         for(int i = 0; i < rowCount; i++)
         {

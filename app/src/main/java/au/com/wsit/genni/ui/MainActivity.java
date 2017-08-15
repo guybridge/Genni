@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity
     private int gameCount;
     private int numberMax;
     private int shuffleCount;
+    private int LOOP_SPEED = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -133,7 +134,7 @@ public class MainActivity extends AppCompatActivity
                     }
 
                 }
-            }, 300);
+            }, LOOP_SPEED);
 
 
     }
