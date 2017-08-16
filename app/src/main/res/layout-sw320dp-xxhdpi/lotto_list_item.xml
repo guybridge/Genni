@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        card_view:cardCornerRadius="3dp"
+        card_view:cardElevation="3dp">
+
+    <LinearLayout
+           android:padding="3dp"
+          android:orientation="horizontal"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+        <TextView
+            android:paddingStart="15dp"
+            android:id="@+id/gameName"
+            android:gravity="center_vertical"
+            android:text="GAME 1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"/>
+
+        <LinearLayout
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/lottoNumber1"
+            style="@style/circleStyle"/>
+
+        <TextView
+            android:id="@+id/lottoNumber2"
+            style="@style/circleStyle"
+            />
+
+        <TextView
+            android:id="@+id/lottoNumber3"
+            style="@style/circleStyle"/>
+
+        <TextView
+            android:id="@+id/lottoNumber4"
+            style="@style/circleStyle"/>
+
+        <TextView
+            android:id="@+id/lottoNumber5"
+            style="@style/circleStyle"/>
+
+        <TextView
+            android:id="@+id/lottoNumber6"
+            style="@style/circleStyle"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+

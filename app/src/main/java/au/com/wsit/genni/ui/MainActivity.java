@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
     private void updateSettings()
     {
         gameCount = Integer.parseInt(sharedPreferences.getString("KEY_NUM_GAMES", "18"));
-        numberMax = Integer.parseInt(sharedPreferences.getString("KEY_MAX_NUMBER", "45"));
+        numberMax = Integer.parseInt(sharedPreferences.getString("KEY_MAX_NUMBER", "45")) + 1;
         shuffleCount = Integer.parseInt(sharedPreferences.getString("KEY_SHUFFLE_COUNT", "10"));
     }
 

@@ -3,7 +3,9 @@ package au.com.wsit.genni.api;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.Random;
+import java.util.Set;
 
 import au.com.wsit.genni.R;
 import au.com.wsit.genni.model.NumberRow;
@@ -68,50 +70,19 @@ public class ListGenerator
         callback.onResult(numberList);
     }
 
-    private ArrayList<Integer> generateRow()
+    // Gets a row of numbers
+    private Set<Integer> generateRow()
     {
-        //Log.i(TAG, "Generating number row");
-        ArrayList<Integer> numberRow = new ArrayList<>();
-
-        for (int i = 0; i < rowCount; i++)
-        {
-            // Add the random number to the row
-            numberRow.add(getRandomNumber());
-        }
-
-        //Log.i(TAG, "Created number row: " + numberRow.toString());
-
-        return numberRow;
-    }
-
-    private int getRandomNumber()
-    {
-        int number;
         Random random = new Random();
-        number = random.nextInt(numberMax + 1);
-        numbersList.add(number);
+        Set<Integer> generated = new LinkedHashSet<>();
 
-        // Check if the number is a duplicate
-        for(int i = 0; i <= numbersList.size(); i++)
+        while(generated.size() < 6)
         {
-            Log.i(TAG, "Checking if " + numbersList.get(i) + " matches " + number);
-            if(number == numbersList.get(i))
-            {
-                Log.i(TAG, "The number already exists in this row, regenerating");
-                getRandomNumber();
-            }
-
-            if(number == 0)
-            {
-                Log.i(TAG, "The number was 0");
-                return number + 1;
-            }
-            else
-            {
-                return number;
-            }
+            Integer next = random.nextInt(numberMax - 1) + 1;
+            generated.add(next);
         }
-        return number;
+
+        return generated;
     }
 
     private ArrayList<Integer> getRandomColour()

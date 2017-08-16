@@ -87,12 +87,12 @@ public class LottoAdapter extends RecyclerView.Adapter<LottoAdapter.ViewHolder>
 
         private void bindViewHolder(NumberRow numberRow)
         {
-            number1.setText(String.valueOf(numberRow.getNumbers().get(0)));
-            number2.setText(String.valueOf(numberRow.getNumbers().get(1)));
-            number3.setText(String.valueOf(numberRow.getNumbers().get(2)));
-            number4.setText(String.valueOf(numberRow.getNumbers().get(3)));
-            number5.setText(String.valueOf(numberRow.getNumbers().get(4)));
-            number6.setText(String.valueOf(numberRow.getNumbers().get(5)));
+            number1.setText(String.valueOf(numberRow.getNumbers().toArray()[0]));
+            number2.setText(String.valueOf(numberRow.getNumbers().toArray()[1]));
+            number3.setText(String.valueOf(numberRow.getNumbers().toArray()[2]));
+            number4.setText(String.valueOf(numberRow.getNumbers().toArray()[3]));
+            number5.setText(String.valueOf(numberRow.getNumbers().toArray()[4]));
+            number6.setText(String.valueOf(numberRow.getNumbers().toArray()[5]));
 
             number1.setBackgroundResource(numberRow.getColour().get(0));
             number2.setBackgroundResource(numberRow.getColour().get(1));

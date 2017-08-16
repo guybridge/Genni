@@ -1,6 +1,7 @@
 package au.com.wsit.genni.model;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Created by guyb on 13/08/17.
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 
 public class NumberRow
 {
-    private ArrayList<Integer> numbers;
+    private Set<Integer> numbers;
     private ArrayList<Integer> colour;
     private String gameName;
 
@@ -32,12 +33,12 @@ public class NumberRow
         this.colour = colour;
     }
 
-    public ArrayList<Integer> getNumbers()
+    public Set<Integer> getNumbers()
     {
         return numbers;
     }
 
-    public void setNumbers(ArrayList<Integer> numbers)
+    public void setNumbers(Set<Integer> numbers)
     {
         this.numbers = numbers;
     }
